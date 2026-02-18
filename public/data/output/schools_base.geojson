@@ -1,0 +1,27 @@
+{
+"type": "FeatureCollection",
+"name": "schools_base",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::6668" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "生駒小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.705977, 34.69134 ] } },
+{ "type": "Feature", "properties": { "name": "生駒南小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.705839, 34.665481 ] } },
+{ "type": "Feature", "properties": { "name": "生駒北小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.72292, 34.741252 ] } },
+{ "type": "Feature", "properties": { "name": "生駒台小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.702366, 34.709561 ] } },
+{ "type": "Feature", "properties": { "name": "生駒東小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.715755, 34.68048 ] } },
+{ "type": "Feature", "properties": { "name": "真弓小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.72617, 34.720088 ] } },
+{ "type": "Feature", "properties": { "name": "俵口小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.689311, 34.705903 ] } },
+{ "type": "Feature", "properties": { "name": "鹿ノ台小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.746557, 34.734891 ] } },
+{ "type": "Feature", "properties": { "name": "桜ヶ丘小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.704894, 34.698534 ] } },
+{ "type": "Feature", "properties": { "name": "あすか野小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.716587, 34.709894 ] } },
+{ "type": "Feature", "properties": { "name": "壱分小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.715338, 34.671981 ] } },
+{ "type": "Feature", "properties": { "name": "生駒南第二小学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.707617, 34.654593 ] } },
+{ "type": "Feature", "properties": { "name": "生駒中学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.693728, 34.698756 ] } },
+{ "type": "Feature", "properties": { "name": "生駒南中学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.705728, 34.667148 ] } },
+{ "type": "Feature", "properties": { "name": "生駒北中学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.721253, 34.738947 ] } },
+{ "type": "Feature", "properties": { "name": "緑ヶ丘中学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.698895, 34.683452 ] } },
+{ "type": "Feature", "properties": { "name": "鹿ノ台中学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.748084, 34.733614 ] } },
+{ "type": "Feature", "properties": { "name": "上中学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.716504, 34.724698 ] } },
+{ "type": "Feature", "properties": { "name": "光明中学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.708255, 34.712255 ] } },
+{ "type": "Feature", "properties": { "name": "大瀬中学校", "isClosed": true }, "geometry": { "type": "Point", "coordinates": [ 135.718061, 34.665676 ] } }
+]
+}

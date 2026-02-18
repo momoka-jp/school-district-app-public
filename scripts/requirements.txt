@@ -1,0 +1,11 @@
+flask
+flask-cors
+pulp
+gurobipy
+numpy
+pandas
+geopandas
+shapely
+python-dotenv
+paramiko
+pyopenssl
