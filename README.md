@@ -152,23 +152,25 @@ bash scripts/start_flask_server.sh
 
 ### Step 1: 対象自治体の決定
 
-1. 対象とする自治体の **都道府県コード** および **市区町村コード** を確認する  
-2. 市区町村コードは `public/data/city_codes.csv` から参照可能である
-3. 都道府県コードを参照して`public/data/`に`p◯◯/`フォルダを作成する
-
+1. 対象とする自治体の **都道府県コード** および **市区町村コード** を確認する 
 例：
 
 - 奈良県：都道府県コード `29`
 - 生駒市：市区町村コード `29209`
 
-- `public/data/p29`
+2. 市区町村コードは `public/data/city_codes.csv` から参照可能である
+
+3. 都道府県コードを参照して`public/data/`に`p◯◯/`フォルダを作成する
+（例：`public/data/p29`）
 
 ---
 ### Step 2: config.json の設定変更
 
-`public/data/config.json` において，以下を対象自治体に合わせて修正する．
+`public/data/config.json` において，対象自治体の名前を設定する．
+本システムでは 都道府県名と市区町村名のみを変更すればよい．
 
-1. 自治体名
+変更する項目：
+
 - 都道府県名 `prefecture_name`
 - 市区町村名 `city_name`
 
@@ -177,50 +179,6 @@ bash scripts/start_flask_server.sh
 "prefecture_name": "奈良県"
 "city_name": "生駒市",
 ```
-
-2. 都道府県コード
-以下のパスには 都道府県コード が含まれているため，対象自治体の都道府県に応じて変更する必要がある．
-
-`schools_base_source_dir`
-`elementary_districts_filename`
-`middle_districts_filename`
-
-例（奈良県(都道府県コード`29`)の場合）：
-```JSON
-"schools_base_source_dir": "p29/P29-21_29_GML",
-"elementary_districts_filename": "p29/A27-23_29_GML/A27-23_29.shp",
-"middle_districts_filename": "p29/A32-23_29_GML/A32-23_29.shp",
-```
-
-3. 市町村コード
-以下のパスには 市町村コード が含まれているため，対象自治体に応じて変更する必要がある．
-
-`students_csv_filename`
-`school_capacity_filename`
-`distance_filename`
-`jimoto_filename`
-
-
-例（生駒市(全国地方公共団体コード`29209`)の場合）：
-```JSON
-"students_csv_filename": "p29/29209/小中町丁目別学校区別学齢別性別集計.csv",
-"school_capacity_filename": "p29/29209/school_capacity.json",
-"distance_filename": "p29/29209/distance.json",
-"jimoto_filename": "p29/29209/jimoto.json"
-"town_topo_filename": "p29/29209/r2ka29209.topojson",
-```
-
-4. 座標系（必要に応じて）
-`local_epsg`
-
-自治体のデータが使用する平面直角座標系に応じて変更する．
-奈良県の場合は以下を使用している．
-
-`6674`
-
-これにより，`scripts/` 以下の各種スクリプトが
-対象自治体向けに動作するようになる．
-
 ---
 
 ### Step 3: オープンデータの取得
@@ -257,7 +215,9 @@ bash scripts/start_flask_server.sh
 
 - 国土数値情報 学校データ  
   https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P29-v2_0.html
-
+  
+  例（奈良県）：
+  `public/data/p29/P29-21_29_GML`
 ---
 
 ### Step 4: 学校位置データの生成
