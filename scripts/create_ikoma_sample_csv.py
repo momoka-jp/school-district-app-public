@@ -33,7 +33,7 @@ config = load_config()
 # 入力ファイル
 # =========================
 
-TOWN_TOPO = resolve_path(config.get("town_topo_filename", "p29/29201/r2ka29201.topojson"))
+TOWN_TOPO = resolve_path(config["town_topo_filename"])
 
 PATH_SHO = resolve_path(config["elementary_districts_filename"])
 PATH_CHU = resolve_path(config["middle_districts_filename"])
