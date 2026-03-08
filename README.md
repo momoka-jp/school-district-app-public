@@ -207,6 +207,7 @@ bash scripts/start_flask_server.sh
 "school_capacity_filename": "p29/29209/school_capacity.json",
 "distance_filename": "p29/29209/distance.json",
 "jimoto_filename": "p29/29209/jimoto.json"
+"town_topo_filename": "p29/29209/r2ka29209.topojson",
 ```
 
 4. 座標系（必要に応じて）
@@ -259,40 +260,7 @@ bash scripts/start_flask_server.sh
 
 ---
 
-### Step 4: 市区町村固有データの準備（必須）
-
-本ステップでは，市区町村ごとに固有となる入力データを用意する．
-これらのデータは，自治体（市役所等）が保有している実データを利用することを想定している．
-
-#### 必要なファイル：
-
-- `school_capacity.json`  
-  - 学校ごとの定員数を記述した JSON ファイル
-  - 想定用途：
-    - 学校規模制約
-    - 定員超過／未充足の評価
-
-- `小中町丁目別学校区別学齢別性別集計.csv`  
-  - 町丁目別・年度別の児童／生徒数を記述した CSV ファイル
-  - 想定用途：
-    - 学区人口の可視化
-    - 年度別シナリオ分析
-    - 最適化モデルの需要入力
-
-※ これらのサンプルデータの生成方法については別途記載する．
-
-**配置先：**  
-`public/data/pXX/YYYYY/`
-
-例（奈良県生駒市：29209）：
-```text
-public/data/p29/29209/
-├─ school_capacity.json
-└─ 小中町丁目別学校区別学齢別性別集計.csv
-```
----
-
-### Step 5: 学校位置データの生成
+### Step 4: 学校位置データの生成
 
 ```bash
 python scripts/generate_schools_base.py
@@ -315,7 +283,51 @@ python scripts/generate_schools_base.py
 
 ---
 
-### Step 6: 学校区・町丁目ポリゴンの統合
+### Step 5: 市区町村固有データの準備（必須）
+
+本ステップでは，市区町村ごとに固有となる入力データを用意する．
+これらのデータは，自治体（市役所等）が保有している実データを利用することを想定している．
+
+#### 必要なファイル：
+
+- `school_capacity.json`  
+  - 学校ごとの定員数を記述した JSON ファイル
+  - 想定用途：
+    - 学校規模制約
+    - 定員超過／未充足の評価
+
+- `小中町丁目別学校区別学齢別性別集計.csv`  
+  - 町丁目別・年度別の児童／生徒数を記述した CSV ファイル
+  - 想定用途：
+    - 学区人口の可視化
+    - 年度別シナリオ分析
+    - 最適化モデルの需要入力
+
+※ これらのサンプルデータの生成方法
+
+```bash
+python scripts/generate_demo_data.py
+```
+
+**配置先：**  
+`public/data/pXX/YYYYY/`
+
+例（奈良県生駒市：29209）：
+```text
+public/data/p29/29209/
+├─ school_capacity.json
+└─ 小中町丁目別学校区別学齢別性別集計.csv
+```
+
+---
+### Step 6: 必須データ生成(`distance.json`, `jimoto.json`)
+
+```bash
+python scripts/generate_required_data.py
+```
+
+---
+### Step 7: 学校区・町丁目ポリゴンの統合
 
 ```bash
 python scripts/create_merged_geojson.py
@@ -333,7 +345,7 @@ python scripts/create_merged_geojson.py
 
 ---
 
-### Step 7: 児童・生徒数（年度別）の付与
+### Step 8: 児童・生徒数（年度別）の付与
 
 ```bash
 python scripts/merged_students_multi_year.py
@@ -353,7 +365,7 @@ python scripts/merged_students_multi_year.py
 
 ---
 
-### Step 8: アプリ起動時の派生データ生成
+### Step 9: アプリ起動時の派生データ生成
 
 本ステップはアプリ起動時に自動的に実行されるため，
 手動での操作は不要である．
