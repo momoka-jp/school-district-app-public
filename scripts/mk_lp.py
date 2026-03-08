@@ -8,6 +8,7 @@ import traceback
 from datetime import datetime
 from flask_cors import CORS
 from dotenv import load_dotenv
+from config_loader import load_config
 
 try:
     from shapely.geometry import shape
@@ -28,11 +29,10 @@ OUTPUT_DIR = os.path.join(PUBLIC_DATA_DIR, "output")
 
 def get_config():
     """config.json を読み込み辞書として返す"""
-    config_path = os.path.join(PUBLIC_DATA_DIR, "config.json")
-    if not os.path.exists(config_path):
-        raise FileNotFoundError(f"config.json が見つかりません: {config_path}")
-    with open(config_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    config = load_config(write_back=False)
+    if not config:
+        raise FileNotFoundError(f"config.json が見つかりません: {os.path.join(PUBLIC_DATA_DIR, 'config.json')}")
+    return config
 
 def get_data_paths(config):
     # config.json に書かれた相対パスを取得

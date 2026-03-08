@@ -1,8 +1,8 @@
 import geopandas as gpd
-import json
 import csv
 import os
 from pathlib import Path
+from config_loader import load_config
 
 # --- 自治体解決用ヘルパー ---
 def lookup_city_code(prefecture, city, header_text, codes_path):
@@ -42,15 +42,10 @@ def get_municipality_paths(config, codes_path):
 # ===== パス設定 =====
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "public" / "data"
-CONFIG_PATH = DATA_DIR / "config.json"
 CITY_CODES_PATH = DATA_DIR / "city_codes.csv"
 
-def load_config():
-    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
-
 def main():
-    config = load_config()
+    config = load_config(write_back=True)
     m_info = get_municipality_paths(config, CITY_CODES_PATH)
     target_city_code = m_info["code"]
 

@@ -1,24 +1,17 @@
 import re
-import json
 from pathlib import Path
 import pandas as pd
+from config_loader import load_config
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "public" / "data"
-
-def load_config():
-    config_path = DATA_DIR / "config.json"
-    if not config_path.exists():
-        return {}
-    with open(config_path, "r", encoding="utf-8") as f:
-        return json.load(f)
 
 def resolve_data_path(key, default_name, cfg):
     filename = cfg.get(key, default_name)
     path = Path(filename)
     return path if path.is_absolute() else DATA_DIR / path
 
-config = load_config()
+config = load_config(write_back=False)
 df = pd.read_csv(resolve_data_path("map_csv_input_filename", "input.csv", config))
 
 # 年度(YYYY)を抽出する正規表現

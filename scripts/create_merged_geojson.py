@@ -2,8 +2,8 @@ import geopandas as gpd
 import pandas as pd
 import os
 import csv
-import json
 from pathlib import Path
+from config_loader import load_config
 
 def get_municipality_paths(config):
     city_code = resolve_city_code(config) 
@@ -23,19 +23,9 @@ def get_municipality_paths(config):
 # ===== パス設定 =====
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "public" / "data"
-CONFIG_PATH = DATA_DIR / "config.json"
-
-def load_config():
-    if not CONFIG_PATH.exists():
-        return {}
-    try:
-        with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        raise RuntimeError(f"config.json の読み込みに失敗: {e}")
 
 # 1. まず設定を読み込む
-config = load_config()
+config = load_config(write_back=True)
 
 # --- 各種設定値の取得 ---
 AREA_THRESHOLD = config.get("area_threshold", 0.01)

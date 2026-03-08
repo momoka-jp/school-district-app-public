@@ -1,6 +1,7 @@
 import csv
 import json
 from pathlib import Path
+from config_loader import load_config
 
 def csv_to_geojson(csv_file, geojson_file):
     features = []
@@ -48,13 +49,6 @@ def csv_to_geojson(csv_file, geojson_file):
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "public" / "data"
 
-def load_config():
-    config_path = DATA_DIR / "config.json"
-    if not config_path.exists():
-        return {}
-    with open(config_path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
 def resolve_data_path(key, default_name, cfg):
     filename = cfg.get(key, default_name)
     path = Path(filename)
@@ -62,7 +56,7 @@ def resolve_data_path(key, default_name, cfg):
     resolved.parent.mkdir(parents=True, exist_ok=True)
     return resolved
 
-config = load_config()
+config = load_config(write_back=False)
 
 csv_to_geojson(
     resolve_data_path("schools_csv_filename", "schools.csv", config),

@@ -4,6 +4,7 @@ import numpy as np
 import csv
 import json
 from pathlib import Path
+from config_loader import load_config
 
 # =========================
 # 基本パス
@@ -12,14 +13,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "public" / "data"
 
-CONFIG_PATH = DATA_DIR / "config.json"
-
-
-def load_config():
-    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
 def resolve_path(path_str):
     path = Path(path_str)
     if path.is_absolute():
@@ -27,7 +20,7 @@ def resolve_path(path_str):
     return DATA_DIR / path
 
 
-config = load_config()
+config = load_config(write_back=True)
 
 # =========================
 # 入力ファイル

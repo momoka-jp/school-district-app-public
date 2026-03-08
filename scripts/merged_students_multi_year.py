@@ -15,7 +15,8 @@ merged.geojson にマージして merged_with_students.geojson を出力する�
 
 from pathlib import Path
 import re
-import json 
+import json
+from config_loader import load_config
 
 import geopandas as gpd
 import pandas as pd
@@ -67,13 +68,7 @@ def get_municipality_paths(config):
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "public" / "data"
 
-def load_config(config_path):
-    if not config_path.exists():
-        raise FileNotFoundError(f"config.json が見つかりません: {config_path}")
-    with open(config_path, "r", encoding="utf-8") as f:
-        return json.load(f)
-    
-config = load_config(DATA_DIR / "config.json") # config読み込み関数が必要
+config = load_config(write_back=True)
 
 def resolve_output_path(key, default_name):
     filename = config.get(key, default_name).replace("output/", "")
