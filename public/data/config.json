@@ -27,10 +27,10 @@
   "area_threshold": 0.01,
   "unknown_school_text": "不明",
   
-  "schools_base_filename": "schools_base.geojson",
-  "merged_geojson_filename": "merged.geojson",
-  "merged_with_students_filename": "merged_with_students.geojson",
-  "schools_filename": "schools.geojson",
-  "schools_original_filename": "schools.original.geojson"
+  "schools_base_filename": "output/schools_base.geojson",
+  "merged_geojson_filename": "output/merged.geojson",
+  "merged_with_students_filename": "output/merged_with_students.geojson",
+  "schools_filename": "output/schools.geojson",
+  "schools_original_filename": "output/schools.original.geojson"
   
 }
