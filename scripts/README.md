@@ -16,29 +16,6 @@
 ---
 
 ## スクリプト一覧
-
-### create_ikoma_sample_csv.py
-
-生駒市向けの**サンプル入力データ一式**を生成するスクリプトである．  
-研究データ非公開時のデモ・検証用途を想定している．
-
-- 入力
-  - `public/data/p29/29209/r2ka29209.topojson`
-  - `public/data/p29/A27-23_29_GML/A27-23_29.shp` (小学校区)
-  - `public/data/p29/A32-23_29_GML/A32-23_29.shp` (中学校区)
-  - `public/data/output/schools_base.geojson` (※ `generate_schools_base.py` により事前生成が必要)
-- 出力
-  - `public/data/p29/29209/小中町丁目別学校区別学齢別性別集計.csv`
-  - `public/data/p29/29209/school_capacity.json`
-  - `public/data/p29/29209/jimoto.json`
-  - `public/data/p29/29209/distance.json`
-
-実行例:
-
-```
-python scripts/create_ikoma_sample_csv.py
-```
-
 ### generate_schools_base.py
 
 学校一覧データをもとに，**学校点の GeoJSON** を生成する．  
@@ -49,6 +26,46 @@ python scripts/create_ikoma_sample_csv.py
 
 ```
 python scripts/generate_schools_base.py
+```
+
+### generate_demo_data.py
+
+データを用意できない自治体向けの**サンプル入力データ一式**を生成するスクリプトである．  
+研究データ非公開時のデモ・検証用途を想定している．
+
+- 入力
+  - `public/data/p29/29209/r2ka29209.topojson`
+  - `public/data/p29/A27-23_29_GML/A27-23_29.shp` (小学校区)
+  - `public/data/p29/A32-23_29_GML/A32-23_29.shp` (中学校区)
+  - `public/data/output/schools_base.geojson` (※ `generate_schools_base.py` により事前生成が必要)
+- 出力
+  - `public/data/p29/29209/小中町丁目別学校区別学齢別性別集計.csv`
+  - `public/data/p29/29209/school_capacity.json`
+
+実行例:
+
+```
+python scripts/generate_demo_data.py
+```
+
+### generate_required_data.py
+
+データを用意できない自治体向けの**サンプル入力データ一式**を生成するスクリプトである．  
+研究データ非公開時のデモ・検証用途を想定している．
+
+- 入力
+  - `public/data/p29/29209/r2ka29209.topojson`
+  - `public/data/p29/A27-23_29_GML/A27-23_29.shp` (小学校区)
+  - `public/data/p29/A32-23_29_GML/A32-23_29.shp` (中学校区)
+  - `public/data/output/schools_base.geojson` (※ `generate_schools_base.py` により事前生成が必要)
+- 出力
+  - `public/data/p29/29209/jimoto.json`
+  - `public/data/p29/29209/distance.json`
+
+実行例:
+
+```
+python scripts/generate_required_data.py
 ```
 
 ### create_merged_geojson.py
