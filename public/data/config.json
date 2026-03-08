@@ -10,6 +10,7 @@
   "school_capacity_filename": "p29/29209/school_capacity.json",
   "distance_filename": "p29/29209/distance.json",
   "jimoto_filename": "p29/29209/jimoto.json",
+  "town_topo_filename": "p29/29209/r2ka29201.topojson",
 
   "local_epsg": 6674,
 
