@@ -1,0 +1,28 @@
+# Node.js dependencies
+node_modules
+
+# Next.js build/cache
+.next
+
+# Python virtual environments and cache
+.venv
+venv
+__pycache__
+*.pyc
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# npm logs
+npm-debug.log*
+
+# OS files
+.DS_Store
+
+# Temporary data
+data/tmp
+data/cache
