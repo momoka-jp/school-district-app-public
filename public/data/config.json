@@ -1,28 +1,36 @@
 {
-  "city_name": "生駒市",
   "prefecture_name": "奈良県",
-  "available_years_filename": "available_years.json",
+  "city_name": "生駒市",
+
   "schools_base_source_dir": "p29/P29-21_29_GML",
+  "elementary_districts_filename": "p29/A27-23_29_GML/A27-23_29.shp",
+  "middle_districts_filename": "p29/A32-23_29_GML/A32-23_29.shp",
+
+  "students_csv_filename": "p29/29209/小中町丁目別学校区別学齢別性別集計.csv",
+  "school_capacity_filename": "p29/29209/school_capacity.json",
+  "distance_filename": "p29/29209/distance.json",
+  "jimoto_filename": "p29/29209/jimoto.json",
+
+  "local_epsg": 6674,
+
+  "available_years_filename": "available_years.json",
   "data_encoding": "shift_jis",
   "target_admin_codes": [3],
   "target_school_types": [16001, 16002],
   "town_boundaries_layer": "town",
-  "elementary_districts_filename": "p29/A27-23_29_GML/A27-23_29.shp",
-  "middle_districts_filename": "p29/A32-23_29_GML/A32-23_29.shp",
-  "local_epsg": 6674,
+  
   "elementary_school_name_col": "A27_004",
   "middle_school_name_col": "A32_004",
-  "area_threshold": 0.01,
   "town_name_col": "S_NAME",
   "city_code_csv_header_text": "行政区域コード",
+
+  "area_threshold": 0.01,
   "unknown_school_text": "不明",
-  "students_csv_filename": "p29/29209/小中町丁目別学校区別学齢別性別集計.csv",
+  
   "schools_base_filename": "schools_base.geojson",
-  "school_capacity_filename": "p29/29209/school_capacity.json",
   "merged_geojson_filename": "merged.geojson",
   "merged_with_students_filename": "merged_with_students.geojson",
   "schools_filename": "schools.geojson",
-  "schools_original_filename": "schools.original.geojson",
-  "distance_filename": "p29/29209/distance.json",
-  "jimoto_filename": "p29/29209/jimoto.json"
+  "schools_original_filename": "schools.original.geojson"
+  
 }
